@@ -1,0 +1,35 @@
+<app-tool-bar></app-tool-bar>
+<body>
+    <div class="login-css">
+        <div class="login-background-css">
+            <div class="login-form-css">
+                <h1>Login</h1>
+                <mat-form-field class="username-css">
+                    <input matInput type="text" [(ngModel)]="username" required>
+                    <mat-placeholder>Username</mat-placeholder>
+                </mat-form-field>
+                <!-- <mat-form-field>
+                    <input matInput type="password" [(ngModel)]="password" required>
+                    <mat-placeholder>password</mat-placeholder>
+                </mat-form-field> -->
+                <mat-form-field class="username-css">
+                    <input matInput  [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required>
+                    <mat-placeholder>password</mat-placeholder>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon svgIcon="{{hide ? 'hide' : 'show'}}"></mat-icon>
+                    </button>
+                  </mat-form-field>
+                <mat-checkbox> Remember me</mat-checkbox>
+                <button mat-button class="login-button-css" (click)="onLogin()">Login</button>
+                <mat-error *ngIf="!loggedIn && try > 0">{{getLoginFailedMessage()}}</mat-error>
+                <h3>Audelia manage yours schooling</h3>
+            </div>
+        </div>
+    </div>
+    <div>
+        <mat-spinner *ngIf="loading"></mat-spinner>
+    </div>
+</body>
+<!-- <app-bottom-bar></app-bottom-bar> -->
+
+

@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Parent Registration</h1>
+<div mat-dialog-content>  
+<mat-label>Gender</mat-label>
+<mat-radio-group aria-label="Select an option" [(ngModel)]="data.parent.gender" [formControl]="gender">
+    <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;&nbsp;
+    <mat-radio-button value="Female">Female</mat-radio-button>
+    <mat-error *ngIf="gender.hasError('genderInvalid')">{{getGenderInvalidErrorMessage()}}</mat-error>
+  </mat-radio-group>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.parent.contactNumber" [formControl]="contactNumber" class="input-css" type="text" required>
+    <mat-placeholder>Contact Number</mat-placeholder>
+    <mat-error *ngIf="contactNumber.hasError('contactNumberInvalid')">{{getContactNumberInvalidErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+        <textarea matInput [(ngModel)]="data.parent.address" [formControl]="address" required></textarea>
+        <mat-placeholder>Address</mat-placeholder>
+        <mat-error *ngIf="address.hasError('addressInvalid')">{{getAddressInvalidErrorMessage()}}</mat-error>
+</mat-form-field>
+
+  <mat-form-field>
+    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" [(ngModel)]="data.parent.password" class="input-css" required>
+    <mat-placeholder>Password</mat-placeholder>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon></mat-icon><mat-icon svgIcon="{{hide ? 'hide' : 'show'}}"></mat-icon>
+    </button>
+    <mat-error *ngIf="password.hasError('passwordInvalid')">{{getPasswordInvalidErrorMessage()}}</mat-error>
+  </mat-form-field>
+  <mat-error *ngIf="!isRegistrationFailed">{{getRegistrationErrorMessage()}}</mat-error>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()" style="background-color: red;font-weight: bold;color: white">Cancel</button>
+  <button mat-button (click)="getData()" cdkFocusInitial style="background-color: forestgreen;font-weight: bold;color: white">Register</button>
+</div>
+

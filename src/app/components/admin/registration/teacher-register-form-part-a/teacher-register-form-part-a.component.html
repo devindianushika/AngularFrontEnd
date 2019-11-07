@@ -1,0 +1,27 @@
+
+        <h1 mat-dialog-title>Teacher Registration</h1>
+        <div mat-dialog-content>
+        <mat-form-field>
+          <input [errorStateMatcher]="matcher" matInput   [(ngModel)]="data.teacher.registrationNumber" [formControl]="regNo"  class="input-css" type="text"   required> 
+          <span matPrefix><b>T-&nbsp;</b></span>
+          <mat-placeholder>Registration Number</mat-placeholder>
+              <mat-error *ngIf="regNo.hasError('regNoInvalid')">{{getRegistrationNumberInvalidMessage()}}</mat-error>
+        </mat-form-field>  
+        
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.teacher.fullName" [formControl]="fullName" class="input-css" required>
+            <mat-placeholder>Full Name</mat-placeholder>
+            <mat-error *ngIf="fullName.hasError('fullNameInvalid')">{{getFullNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-container">
+            <input matInput placeholder="Enter your email" [formControl]="email" [(ngModel)]="data.teacher.email" required>
+            <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+          </mat-form-field>
+
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button (click)="onCancelClick()" style="background-color: red;font-weight: bold;color: white">Cancel</button>
+          <button mat-button (click)="getData()" cdkFocusInitial style="background-color:forestgreen;font-weight: bold;color: white">Next</button>
+        </div>
+        
+      

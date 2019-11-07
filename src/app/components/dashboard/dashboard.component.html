@@ -1,0 +1,52 @@
+<app-tool-bar></app-tool-bar>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer mode="side" opened class="drawer-css">
+            <mat-list>
+                <mat-list-item>
+                    <button mat-flat-button (click)="onHomeClick()" [ngClass]="setClassHome()"routerLink="/home" >Home</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                        <button mat-flat-button (click)="onPeopleClick()" [ngClass]="setClassPeople()" routerLink="/people" >People</button>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                <mat-list-item >
+                    <button mat-flat-button (click)="onNewsClick()" [ngClass]="setClassNews()">News</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <button mat-flat-button (click)="onArticlesClick()" [ngClass]="setClassArticles()">Articles</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngIf="userType === 'ADMIN'">
+                    <button mat-flat-button (click)="onAdministrationClick()" [ngClass]="setClassAdministration()" routerLink="/administration">Administration</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngIf="userType === 'TEACHER' || userType === 'STUDENT'">
+                    <button mat-flat-button (click)="onMyClassesClick()" [ngClass]="setClassMyClasses()">My Classes</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngIf="userType === 'PARENT'">
+                    <button mat-flat-button (click)="onMyChildrenClick()" [ngClass]="setClassMyChildren()">My Children</button>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item *ngIf="userType === 'TEACHER'">
+                    <button mat-flat-button (click)="onApprovalsClick()" [ngClass]="setClassApprovals()">Approvals</button>
+                </mat-list-item>
+            </mat-list>
+
+            <div class="school-logo-css" *ngIf="userType === 'ADMIN' || userType === 'PARENT' || userType === 'STUDENT'">
+                    <img src="../../../assets/images/maha maya college.png" alt="Maha Maya College" width="60%">
+            </div>
+            
+            <div class="school-logo-css-teacher" *ngIf="userType === 'TEACHER'">
+                <img src="../../../assets/images/maha maya college.png" alt="Maha Maya College" width="60%">
+        </div>
+
+    </mat-drawer>
+    <mat-drawer-content>
+            
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+

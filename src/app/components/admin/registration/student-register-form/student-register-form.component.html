@@ -1,0 +1,35 @@
+
+        <h1 mat-dialog-title>Student Registration</h1>
+        <div mat-dialog-content>
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.student.registrationNumber" [formControl]="regNo" class="input-css" type="text" required> 
+            <span matPrefix><b>S-</b></span>
+            <mat-placeholder>Registration Number</mat-placeholder>
+            <mat-error *ngIf="regNo.hasError('regNoInvalid')">{{getRegistrationNumberInvalidMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [(ngModel)]="data.student.fullName" [formControl]="fullName" class="input-css" required>
+            <mat-placeholder>Full Name</mat-placeholder>
+            <mat-error *ngIf="fullName.hasError('fullNameInvalid')">{{getFullNameErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <textarea matInput [(ngModel)]="data.student.currentAddress" [formControl]="currentAddress" required></textarea>
+            <mat-placeholder>Current Address</mat-placeholder>
+            <mat-error *ngIf="currentAddress.hasError('currentAddressInvalid')">{{getContactNumberErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput [matDatepicker]="picker" [(ngModel)]="data.student.birthday" [formControl]="birthday" class="input-css" required>
+              <mat-placeholder>Birthday</mat-placeholder>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="birthday.hasError('birthdayInvalid')">{{getBirthdayInvalidErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div mat-dialog-actions>
+          <button mat-button (click)="onCancelClick()" style="background-color: red;font-weight: bold;color: white">Cancel</button>
+          <button mat-button (click)="getData()" cdkFocusInitial style="background-color:forestgreen;font-weight: bold;color: white">Next</button>
+        </div>
+        
+        
+

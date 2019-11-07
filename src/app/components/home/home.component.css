@@ -1,0 +1,14 @@
+.caption{
+    font-size:450% !important;
+font-family: cursive;
+    color: yellow;
+}
+.caption-p{
+    font-family: cursive;
+    color:  rgb(51, 61, 122);
+}
+
+body {
+    overflow-y: hidden !important; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }

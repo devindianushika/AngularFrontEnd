@@ -1,0 +1,115 @@
+.mat-card-css-administration {
+    width: 400px;
+    background:rgb(14, 14, 56);
+    color: #FFA90A;
+    font-weight: bold;
+    height: 250px!important;
+    font-size: 100%;
+
+}
+
+.mat-card-css-approve {
+    width: 400px;
+    background:rgb(14, 14, 56);
+    color: #FFA90A;
+    font-weight: bold;
+    height: 250px!important;
+    font-size: 100%;
+   
+}
+
+.mat-card-css-addNew {
+    width: 400px;
+    background: black;
+    color: #FFA90A;
+    font-weight: bold;
+    height: 250px!important;
+    font-size: 100%;
+
+}
+
+.mat-card-css-assign {
+    width: 400px;
+    background:black;
+    color: #FFA90A;
+    font-weight: bold;
+    height: 250px!important;
+    font-size: 300%;
+    /* font-family: cursive; */
+    
+}
+
+mat-grid-list {
+    padding: 10px;
+}
+
+.administration-css {
+    /* background: #5edfff; */
+    height: 90vh;
+    background-image: url("../../../../assets/images/SchoolchildrenInUniform.jpg");
+   
+    /* background-image:url("../../../assets/images/SchoolchildrenInUniform.jpg"); */
+}
+
+
+button {
+    width:150px;
+    font-size: 95%;
+    background: #3e64ff;
+    color: white;
+    text-align: center !important;
+}
+
+/* mat-card-header {
+    background: #FFA90A;
+} */
+
+* {box-sizing: border-box;}
+
+ /* .container {
+  
+  width: 15%;
+   max-width: 70px; 
+   position: fixed; 
+}  */
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  align-self: auto;
+}
+.image-assign {
+    display: block;
+    width: 90%;
+    height: 90%;
+    align-self: auto;
+  }
+
+  .image-approve {
+    display: block;
+    width: 100%;
+    height: 100%;
+    align-self: auto;
+  }
+  
+
+.overlay  {
+ position: fixed;
+  bottom: 5; 
+  background:white;
+  background:rgba(255, 255, 255, 0.295); /* Black see-through */
+  color: #f1f1f1; 
+  width: 23%;
+  height:10%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center !important;
+}
+
+.container:hover .overlay {
+  opacity: 1 !important;
+}

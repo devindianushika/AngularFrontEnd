@@ -1,0 +1,100 @@
+.example-container {
+    width: 100%;
+    height: 90.3vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    border: 1px solid #555;
+    flex: 1 1 auto;
+  }
+
+  .drawer-css {
+    width: 20%;
+    background-color:#3F51B5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 0;
+    
+  }
+
+  button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 1.2vw;
+    font-weight: bold;
+    background-color: transparent;
+    color: white;
+    z-index: 1;
+  }
+
+  button:hover {
+    background-color: white;
+    color: #FFA90A;
+  }
+
+  mat-list-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+
+  .is-clicked-home {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .is-clicked-people {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .is-clicked-news {
+    background: white;
+    color: #FFA90A;
+  }
+  .is-clicked-articles {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .is-clicked-my-classes {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .is-clicked-my-children {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .is-clicked-approvals {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .is-clicked-adminstration {
+    background: white;
+    color: #FFA90A;
+  }
+
+  .school-logo-css {
+    margin-bottom: 0%;
+    margin-top: 30%;
+    margin-left: 30%;
+    position: sticky;
+  }
+
+  .school-logo-css-teacher {
+    margin-bottom: 0%;
+    margin-top: 14%;
+    margin-left: 30%;
+    position: sticky;
+  }
+
+  
+
+  mat-drawer {
+  overflow: hidden;
+  background-color:  rgba(28, 126, 165, 0.993)!important;
+ }

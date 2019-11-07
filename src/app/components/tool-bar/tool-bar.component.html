@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="toolbar-css"> 
+    <mat-toolbar-row class="toolbar-row-css">
+        <!-- <span class="logo-css"> -->
+            <!-- <mat-icon svgIcon="audelia_logo" inline="true" class="logo-icon-css"></mat-icon>             -->
+            <img src="../assets/logos/au1-01.png" alt="logo" width="10%" class="logo-css">
+        <!-- </span> -->
+        <span class="name-css">
+            Audelia
+        </span>
+        <span class="spacer"></span>
+        <div class="auth-text-css" *ngIf="!isAuthenticated">
+            <span>You are not logged in</span>
+        </div>
+        <div *ngIf="isAuthenticated">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                            <mat-icon svgIcon="profile_icon" inline="true" class></mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                          
+                        <button mat-menu-item (click)="profileView()" routerLink="/profile">
+                               
+                                        <mat-icon svgIcon="view_profile_icon" inline="true" class="view-profile-css"></mat-icon>
+                
+                          <span class="profile-name-css">Profile</span>
+                        </button>
+
+                        <button mat-menu-item>
+                          <mat-icon svgIcon="settings_icon" inline="true" class="view-profile-css"></mat-icon>
+                          <span>Settings</span>
+                        </button>
+                        <button mat-menu-item (click)="logout()">
+                          <mat-icon svgIcon="logout_icon" inline="true" class="view-profile-css"></mat-icon>
+                          <span>Logout</span>
+                        </button>
+                      </mat-menu>                      
+        </div>
+    </mat-toolbar-row>   
+</mat-toolbar>

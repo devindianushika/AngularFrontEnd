@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Student Registration</h1>
+<div mat-dialog-content>
+
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="data.student.gender" [formControl]="gender">
+      <label>Gender</label><br/>
+      <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;&nbsp;
+      <mat-radio-button value="Female">Female</mat-radio-button>
+      <mat-error *ngIf="gender.hasError('genderInvalid')">{{getGenderInvalidErrorMessage()}}</mat-error>
+  </mat-radio-group>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.student.contactNumber" [formControl]="contactNumber" class="input-css" type="text" required>
+    <mat-placeholder>Contact Number</mat-placeholder>
+    <mat-error *ngIf="contactNumber.hasError('contactNumberInvalid')">{{getContactNumberInvalidErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="data.student.password" [formControl]="password" class="input-css" required>
+    <mat-placeholder>Password</mat-placeholder>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+    <mat-icon></mat-icon><mat-icon svgIcon="{{hide ? 'hide' : 'show'}}"></mat-icon>
+    </button>
+    <mat-error *ngIf="password.hasError('passwordInvalid')">{{getPasswordInvalidErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput placeholder="Parent" [(ngModel)]="data.student.childRegistratonNumber" aria-label="Parent" [matAutocomplete]="auto" [formControl]="parentCtrl" class="input-css">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let parent of filteredParents | async" [value]="parent.registrationNumber">
+          <span>{{parent.registrationNumber}}</span> |
+          <small>{{parent.fullName}}</small>
+        </mat-option>
+      </mat-autocomplete>
+  </mat-form-field>
+
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()" style="background-color: red;font-weight: bold;color: white">Cancel</button>
+  <button mat-button   (click)="openParentRegistrationDialog()" cdkFocusInitial style="background-color: forestgreen;font-weight: bold;color: white">Add Parent</button>
+  <button mat-button  [disabled]="!isParentAdded" (click)="getData()" cdkFocusInitial style="background-color: blueviolet;font-weight: bold;color: white">Register</button>
+</div>
+
